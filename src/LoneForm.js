@@ -61,17 +61,17 @@ export default function LoneForm() {
         <hr />
 
         <MyComponent
-          InputName="Name: "
+          nameInput="Name: "
           value={loanInputs.name}
           handleChange={HandelNameChangeInput}
         />
         <MyComponent
-          InputName="Phone Number: "
+          nameInput="Phone Number: "
           value={loanInputs.PhoneNumber}
           handleChange={HandelPhoneNumberChangeInput}
         />
         <MyComponent
-          InputName="Ago: "
+          nameInput="Ago: "
           value={loanInputs.ago}
           handleChange={HandelAgoChangeInput}
         />

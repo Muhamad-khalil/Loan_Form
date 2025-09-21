@@ -1,7 +1,7 @@
-const MyComponent = ({ value, handleChange, InputName }) => {
+const MyComponent = ({ value, handleChange, nameInput }) => {
   return (
     <>
-      <label htmlFor="">{InputName}</label>
+      <label htmlFor="">{nameInput}</label>
       <input
         value={value}
         onChange={(e) => {
