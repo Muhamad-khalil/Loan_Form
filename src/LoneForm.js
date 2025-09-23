@@ -62,18 +62,18 @@ export default function LoneForm() {
 
         <MyComponent
           nameInput="Name: "
-          value={loanInputs.name}
-          handleChange={HandelNameChangeInput}
+          valueComponent={loanInputs.name}
+          handleChangeComponent={HandelNameChangeInput}
         />
         <MyComponent
           nameInput="Phone Number: "
-          value={loanInputs.PhoneNumber}
-          handleChange={HandelPhoneNumberChangeInput}
+          valueComponent={loanInputs.PhoneNumber}
+          handleChangeComponent={HandelPhoneNumberChangeInput}
         />
         <MyComponent
           nameInput="Ago: "
-          value={loanInputs.ago}
-          handleChange={HandelAgoChangeInput}
+          valueComponent={loanInputs.ago}
+          handleChangeComponent={HandelAgoChangeInput}
         />
 
         <div style={{ marginTop: "30px" }}>

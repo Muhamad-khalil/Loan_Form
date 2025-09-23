@@ -1,13 +1,14 @@
-const MyComponent = ({ value, handleChange, nameInput }) => {
+import MyInputs from "./MyInputs";
+const MyComponent = ({ valueComponent, handleChangeComponent, nameInput }) => {
   return (
     <>
-      <label htmlFor="">{nameInput}</label>
-      <input
-        value={value}
-        onChange={(e) => {
-          handleChange(e.target.value);
-        }}
+      <h1>My header</h1>
+      <MyInputs
+        nameInput={nameInput}
+        value={valueComponent}
+        handleChange={handleChangeComponent}
       />
+      <h1>My header</h1>
     </>
   );
 };
