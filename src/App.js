@@ -1,10 +1,18 @@
 import "./App.css";
 import LoneForm from "./LoneForm";
+import { UserContext } from "./context/userContext";
 function App() {
-  const title = "lone form";
   return (
     <div className="App">
-      <LoneForm title={title} />
+      <UserContext.Provider
+        value={{
+          UserName: "Mohamed90",
+          Name: "Mohamed",
+          Email: "mohamed@gmail.com",
+        }}
+      >
+        <LoneForm />
+      </UserContext.Provider>
     </div>
   );
 }

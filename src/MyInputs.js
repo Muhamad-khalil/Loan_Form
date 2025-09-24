@@ -1,13 +1,19 @@
-import React from "react";
+import { useContext } from "react";
+import { LoneInputContext } from "./context/loneFormInputContext";
+import { UserContext } from "./context/userContext";
 
-const MyInputs = ({ value, handleChange, nameInput }) => {
+const MyInputs = () => {
+  let UserData = useContext(UserContext);
+  let inputContext = useContext(LoneInputContext);
   return (
     <div>
-      <label>{nameInput}</label>
+      <label>
+        {UserData.Name} {inputContext.labelTitle}
+      </label>
       <input
-        value={value}
+        value={inputContext.inputValue}
         onChange={(e) => {
-          handleChange(e.target.value);
+          inputContext.handelChange(e.target.value);
         }}
       />
     </div>

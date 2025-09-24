@@ -1,8 +1,11 @@
 import Modal from "./Modal";
 import "./formStyle.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import MyComponent from "./MyComponent";
+import { LoneInputContext } from "./context/loneFormInputContext";
+import { UserContext } from "./context/userContext";
 export default function LoneForm() {
+  const userData = useContext(UserContext);
   const [errorMessage, setErrorMessage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [loanInputs, setLoanInputs] = useState({
@@ -56,25 +59,46 @@ export default function LoneForm() {
         marginTop: "250px",
       }}
     >
+      <h1 style={{ color: "white" }}>Hello {userData.Name}</h1>
       <form id="loan-form" style={{ flexDirection: "column" }}>
         <h1>requesting A Lone </h1>
         <hr />
 
-        <MyComponent
-          nameInput="Name: "
-          valueComponent={loanInputs.name}
-          handleChangeComponent={HandelNameChangeInput}
-        />
-        <MyComponent
-          nameInput="Phone Number: "
-          valueComponent={loanInputs.PhoneNumber}
-          handleChangeComponent={HandelPhoneNumberChangeInput}
-        />
-        <MyComponent
+        <LoneInputContext.Provider
+          value={{
+            value: loanInputs.name,
+            handelChange: HandelNameChangeInput,
+            labelTitle: "Name :",
+          }}
+        >
+          <MyComponent />
+        </LoneInputContext.Provider>
+
+        <LoneInputContext.Provider
+          value={{
+            value: loanInputs.PhoneNumber,
+            labelTitle: "Phone Number :",
+            handelChange: HandelPhoneNumberChangeInput,
+          }}
+        >
+          <MyComponent />
+        </LoneInputContext.Provider>
+
+        <LoneInputContext.Provider
+          value={{
+            value: loanInputs.ago,
+            labelTitle: "Ago :",
+            handelChange: HandelAgoChangeInput,
+          }}
+        >
+          <MyComponent />
+        </LoneInputContext.Provider>
+
+        {/* <MyComponent
           nameInput="Ago: "
           valueComponent={loanInputs.ago}
           handleChangeComponent={HandelAgoChangeInput}
-        />
+        /> */}
 
         <div style={{ marginTop: "30px" }}>
           <label htmlFor="">are you an employee?:</label>
